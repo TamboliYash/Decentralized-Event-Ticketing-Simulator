@@ -9,6 +9,7 @@ import MyTickets from './pages/buyer/MyTickets';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import PlatformManagement from './pages/admin/PlatformManagement';
 import HashChain from './pages/admin/HashChain';
+import ScanTicket from './pages/staff/ScanTicket';
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
       <Route path="/buyer/events" element={<BrowseEvents />} />
       <Route path="/buyer/events/:id" element={<EventDetails />} />
       <Route path="/buyer/tickets" element={<MyTickets />} />
+
+      {/* Staff Routes */}
+      <Route path="/staff/scan" element={<ScanTicket />} />
 
       {/* Default redirect */}
       <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
