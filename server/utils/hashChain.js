@@ -94,7 +94,7 @@ async function appendTicket(ticketData) {
       updatedState = await ChainState.findOneAndUpdate(
         { _id: "main", seq: state.seq },
         { $set: { seq, lastHash: currentHash } },
-        { new: true }
+        { returnDocument: "after" }
       );
     }
 
