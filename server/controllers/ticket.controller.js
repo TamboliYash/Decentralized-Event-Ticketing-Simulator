@@ -243,7 +243,7 @@ async function verifyTicket(req, res, next) {
     const updatedTicket = await Ticket.findOneAndUpdate(
       { _id: ticket._id, status: "valid" },
       { $set: { status: "used" } },
-      { new: true }
+      { returnDocument: "after" }
     );
 
     if (!updatedTicket) {
@@ -299,7 +299,7 @@ async function transferTicket(req, res, next) {
     const oldTicket = await Ticket.findOneAndUpdate(
       { _id: ticketId, buyerId: currentOwnerId, status: "valid" },
       { $set: { status: "transferred" } },
-      { new: true }
+      { returnDocument: "after" }
     );
 
     if (!oldTicket) {
